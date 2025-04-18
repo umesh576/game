@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sliding Circle Game</title>
+    <title>Circle Slide Game</title>
     <style>
       * {
         box-sizing: border-box;
@@ -18,6 +18,7 @@
         height: 100vh;
         background: #111;
         font-family: Arial, sans-serif;
+        overflow: hidden;
       }
 
       .game-area {
@@ -56,52 +57,119 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.7);
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         color: white;
-        font-size: 3vmin;
+        font-size: 4vmin;
         font-weight: bold;
         z-index: 10;
+      }
+
+      .restart-btn {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 2.5vmin;
+        background-color: white;
+        color: #333;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+
+      .score {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 3vmin;
+        font-weight: bold;
+        color: #333;
+        z-index: 5;
+      }
+
+      .controls {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        z-index: 5;
+      }
+
+      .btn {
+        background: #222;
+        color: white;
+        border: none;
+        padding: 1rem;
+        border-radius: 50%;
+        font-size: 2vmin;
+        cursor: pointer;
+      }
+
+      @media (min-width: 768px) {
+        .controls {
+          display: none; /* Hide on desktop */
+        }
       }
     </style>
   </head>
   <body>
     <div class="game-area" id="gameArea">
+      <div class="score" id="score">Score: 0</div>
       <div class="player" id="player"></div>
+
+      <!-- Mobile Controls -->
+      <div class="controls">
+        <button class="btn" onclick="move('up')">⬆️</button>
+        <button class="btn" onclick="move('left')">⬅️</button>
+        <button class="btn" onclick="move('down')">⬇️</button>
+        <button class="btn" onclick="move('right')">➡️</button>
+      </div>
     </div>
 
     <script>
       const player = document.getElementById("player");
       const gameArea = document.getElementById("gameArea");
+      const scoreText = document.getElementById("score");
 
       let playerX = gameArea.clientWidth * 0.1;
       let playerY = gameArea.clientHeight * 0.46;
       const speed = 5;
       let gameOver = false;
+      let score = 0;
+      let obstacleInterval;
+      let scoreInterval;
 
-      // Move player
-      document.addEventListener("keydown", (e) => {
+      // Player movement
+      function move(direction) {
         if (gameOver) return;
 
         const areaW = gameArea.clientWidth;
         const areaH = gameArea.clientHeight;
         const size = player.offsetWidth;
 
-        if (e.key === "ArrowUp" && playerY > 0) {
+        if (direction === "up" && playerY > 0) {
           playerY -= speed;
-        } else if (e.key === "ArrowDown" && playerY + size < areaH) {
+        } else if (direction === "down" && playerY + size < areaH) {
           playerY += speed;
-        } else if (e.key === "ArrowLeft" && playerX > 0) {
+        } else if (direction === "left" && playerX > 0) {
           playerX -= speed;
-        } else if (e.key === "ArrowRight" && playerX + size < areaW) {
+        } else if (direction === "right" && playerX + size < areaW) {
           playerX += speed;
         }
 
         player.style.left = playerX + "px";
         player.style.top = playerY + "px";
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key.includes("Arrow")) {
+          move(e.key.replace("Arrow", "").toLowerCase());
+        }
       });
 
-      // Create obstacles
+      // Obstacles
       function createObstacle() {
         if (gameOver) return;
 
@@ -127,15 +195,14 @@
           posX -= 4;
           obstacle.style.left = posX + "px";
 
-          // Collision Detection
           const playerRect = player.getBoundingClientRect();
-          const obstacleRect = obstacle.getBoundingClientRect();
+          const obsRect = obstacle.getBoundingClientRect();
 
           if (
-            playerRect.left < obstacleRect.right &&
-            playerRect.right > obstacleRect.left &&
-            playerRect.top < obstacleRect.bottom &&
-            playerRect.bottom > obstacleRect.top
+            playerRect.left < obsRect.right &&
+            playerRect.right > obsRect.left &&
+            playerRect.top < obsRect.bottom &&
+            playerRect.bottom > obsRect.top
           ) {
             endGame();
             clearInterval(move);
@@ -148,29 +215,54 @@
         }, 20);
       }
 
-      // Repeated obstacle generation
-      setInterval(() => {
-        if (!gameOver) {
-          createObstacle();
-        }
-      }, 1000);
+      function startGame() {
+        score = 0;
+        gameOver = false;
+        scoreText.textContent = "Score: 0";
+        playerX = gameArea.clientWidth * 0.1;
+        playerY = gameArea.clientHeight * 0.46;
+        player.style.left = playerX + "px";
+        player.style.top = playerY + "px";
 
-      // End game
+        // Remove existing overlays and obstacles
+        document.querySelectorAll(".game-over").forEach((el) => el.remove());
+        document.querySelectorAll(".obstacle").forEach((el) => el.remove());
+
+        // Start scoring and obstacles
+        scoreInterval = setInterval(() => {
+          if (!gameOver) {
+            score++;
+            scoreText.textContent = "Score: " + score;
+          }
+        }, 500);
+
+        obstacleInterval = setInterval(() => {
+          if (!gameOver) {
+            createObstacle();
+          }
+        }, 1000);
+      }
+
       function endGame() {
         gameOver = true;
+        clearInterval(scoreInterval);
+        clearInterval(obstacleInterval);
+
         const overlay = document.createElement("div");
         overlay.className = "game-over";
-        overlay.textContent = "Game Over";
+        overlay.innerHTML = `Game Over<br>Score: ${score}<br><button class="restart-btn" onclick="startGame()">Restart</button>`;
         gameArea.appendChild(overlay);
       }
 
-      // Resize handling
       window.addEventListener("resize", () => {
         playerX = gameArea.clientWidth * 0.1;
         playerY = gameArea.clientHeight * 0.46;
         player.style.left = playerX + "px";
         player.style.top = playerY + "px";
       });
+
+      // Start game initially
+      startGame();
     </script>
   </body>
 </html>
