@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sliding Circle Game</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #111;
+        font-family: Arial, sans-serif;
+      }
+
+      .game-area {
+        position: relative;
+        width: 90vmin;
+        height: 90vmin;
+        max-width: 600px;
+        max-height: 600px;
+        background-color: #f0f0f0;
+        border: 5px solid #444;
+        overflow: hidden;
+      }
+
+      .player {
+        position: absolute;
+        width: 8%;
+        height: 8%;
+        background-color: red;
+        border-radius: 50%;
+        top: 46%;
+        left: 10%;
+        transition: top 0.1s, left 0.1s;
+      }
+
+      .obstacle {
+        position: absolute;
+        width: 8%;
+        height: 8%;
+        background-color: blue;
+        border-radius: 20%;
+      }
+
+      .game-over {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 3vmin;
+        font-weight: bold;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-area" id="gameArea">
+      <div class="player" id="player"></div>
+    </div>
+
+    <script>
+      const player = document.getElementById("player");
+      const gameArea = document.getElementById("gameArea");
+
+      let playerX = gameArea.clientWidth * 0.1;
+      let playerY = gameArea.clientHeight * 0.46;
+      const speed = 5;
+      let gameOver = false;
+
+      // Move player
+      document.addEventListener("keydown", (e) => {
+        if (gameOver) return;
+
+        const areaW = gameArea.clientWidth;
+        const areaH = gameArea.clientHeight;
+        const size = player.offsetWidth;
+
+        if (e.key === "ArrowUp" && playerY > 0) {
+          playerY -= speed;
+        } else if (e.key === "ArrowDown" && playerY + size < areaH) {
+          playerY += speed;
+        } else if (e.key === "ArrowLeft" && playerX > 0) {
+          playerX -= speed;
+        } else if (e.key === "ArrowRight" && playerX + size < areaW) {
+          playerX += speed;
+        }
+
+        player.style.left = playerX + "px";
+        player.style.top = playerY + "px";
+      });
+
+      // Create obstacles
+      function createObstacle() {
+        if (gameOver) return;
+
+        const obstacle = document.createElement("div");
+        obstacle.classList.add("obstacle");
+
+        const size = gameArea.clientWidth * 0.08;
+        const top = Math.random() * (gameArea.clientHeight - size);
+        obstacle.style.top = top + "px";
+        obstacle.style.left = gameArea.clientWidth + "px";
+
+        gameArea.appendChild(obstacle);
+
+        let posX = gameArea.clientWidth;
+
+        const move = setInterval(() => {
+          if (gameOver) {
+            clearInterval(move);
+            obstacle.remove();
+            return;
+          }
+
+          posX -= 4;
+          obstacle.style.left = posX + "px";
+
+          // Collision Detection
+          const playerRect = player.getBoundingClientRect();
+          const obstacleRect = obstacle.getBoundingClientRect();
+
+          if (
+            playerRect.left < obstacleRect.right &&
+            playerRect.right > obstacleRect.left &&
+            playerRect.top < obstacleRect.bottom &&
+            playerRect.bottom > obstacleRect.top
+          ) {
+            endGame();
+            clearInterval(move);
+          }
+
+          if (posX < -size) {
+            obstacle.remove();
+            clearInterval(move);
+          }
+        }, 20);
+      }
+
+      // Repeated obstacle generation
+      setInterval(() => {
+        if (!gameOver) {
+          createObstacle();
+        }
+      }, 1000);
+
+      // End game
+      function endGame() {
+        gameOver = true;
+        const overlay = document.createElement("div");
+        overlay.className = "game-over";
+        overlay.textContent = "Game Over";
+        gameArea.appendChild(overlay);
+      }
+
+      // Resize handling
+      window.addEventListener("resize", () => {
+        playerX = gameArea.clientWidth * 0.1;
+        playerY = gameArea.clientHeight * 0.46;
+        player.style.left = playerX + "px";
+        player.style.top = playerY + "px";
+      });
+    </script>
+  </body>
+</html>
