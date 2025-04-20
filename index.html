@@ -150,8 +150,8 @@
         const size = player.offsetWidth;
 
         if (direction === "up" && playerY > 0) {
-          playerY -= speed;
-        } else if (direction === "down" && playerY + size < areaH) {
+          playerY -= speed + 6;
+        } else if (direction === "down" && playerY + size + 7 < areaH) {
           playerY += speed;
         } else if (direction === "left" && playerX > 0) {
           playerX -= speed;
