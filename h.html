@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dewaka Poudel | Biotechnology Professional</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Dewaka Poudel, a Biotechnology graduate with research experience in molecular biology and plant tissue culture."
+    />
+    <meta
+      name="keywords"
+      content="Dewaka Poudel, Biotechnology, Molecular Biology, Microbiology, Plant Tissue Culture, Research Associate, Nepal"
+    />
+    <meta name="author" content="Dewaka Poudel" />
+    <meta
+      property="og:title"
+      content="Dewaka Poudel | Biotechnology Professional"
+    />
+    <meta
+      property="og:description"
+      content="Explore the professional portfolio of Dewaka Poudel, a Biotechnology graduate with research experience."
+    />
+    <meta property="og:image" content="profile.jpg" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== CSS Variables ===== */
+      :root {
+        --primary: #0ea5e9;
+        --primary-light: rgba(14, 165, 233, 0.2);
+        --primary-dark: #0b87b8;
+        --dark: #020617;
+        --dark-light: #0f172a;
+        --light: #ffffff;
+        --text: #f8fafc;
+        --text-light: #cbd5e1;
+        --transition: all 0.3s ease;
+        --section-padding: 6rem 0;
+        --card-padding: 2.5rem;
+        --border-radius: 12px;
+        --max-width: 1200px;
+      }
+
+      /* ===== Base Styles ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--dark);
+        color: var(--text);
+        line-height: 1.7;
+        padding-top: 80px;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        overflow-x: hidden;
+        font-size: 1.2rem;
+      }
+
+      /* ===== Background Design ===== */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 30%,
+            rgba(14, 165, 233, 0.1) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(14, 165, 233, 0.1) 0%,
+            transparent 25%
+          ),
+          linear-gradient(
+            to bottom,
+            transparent 95%,
+            rgba(14, 165, 233, 0.05) 100%
+          );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .bg-circuit {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.08;
+        pointer-events: none;
+        background-image: linear-gradient(
+            rgba(14, 165, 233, 0.3) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(14, 165, 233, 0.3) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask-image: radial-gradient(
+          circle at center,
+          black 30%,
+          transparent 70%
+        );
+      }
+
+      /* ===== Utility Classes ===== */
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section {
+        padding: var(--section-padding);
+        position: relative;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        border-radius: 2px;
+      }
+
+      .card {
+        background: var(--dark-light);
+        border-radius: var(--border-radius);
+        padding: var(--card-padding);
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: linear-gradient(
+          45deg,
+          var(--primary),
+          var(--primary-dark),
+          var(--primary)
+        );
+        background-size: 400%;
+        border-radius: var(--border-radius);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .card:hover::before {
+        opacity: 0.1;
+      }
+
+      .text-primary {
+        color: var(--primary);
+      }
+
+      .text-light {
+        color: var(--text-light);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.75rem;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        font-size: 1.15rem;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        outline: none;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: var(--dark);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      /* ===== Navigation Bar ===== */
+      .navbar {
+        background: rgba(2, 6, 23, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .profile-img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        object-fit: cover;
+      }
+
+      .navbar-brand h1 {
+        color: var(--primary);
+        font-size: 1.65rem;
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        font-size: 1.25rem;
+        padding: 0.5rem 0;
+        color: var(--text-light);
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-links a.active {
+        color: var(--text);
+      }
+
+      .resume-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-left: 3rem;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text);
+        font-size: 1.75rem;
+        cursor: pointer;
+        transition: var(--transition);
+        padding: 0.5rem;
+      }
+
+      .mobile-menu-btn:hover {
+        color: var(--primary);
+      }
+
+      /* ===== Hero Section ===== */
+      #home {
+        padding-top: 4rem;
+        min-height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .profile-pic {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid var(--primary);
+        box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+        margin-bottom: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .profile-pic:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(14, 165, 233, 0.3);
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: var(--text);
+        line-height: 1.2;
+      }
+
+      .hero-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        font-weight: 500;
+      }
+
+      .hero-text p {
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        font-size: 1.4rem;
+        line-height: 1.8;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.85rem 1.35rem;
+        background: var(--dark-light);
+        border-radius: 50px;
+        transition: var(--transition);
+        font-size: 1.15rem;
+      }
+
+      .social-item:hover {
+        transform: translateY(-3px);
+        background: var(--primary-light);
+      }
+
+      .social-item i {
+        color: var(--primary);
+        font-size: 1.5rem;
+        width: 24px;
+        text-align: center;
+      }
+
+      .social-item span {
+        transition: var(--transition);
+      }
+
+      .social-item:hover span {
+        color: var(--primary);
+      }
+
+      /* ===== About Section ===== */
+      .about-content {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .about-content p {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        line-height: 1.8;
+      }
+
+      /* ===== Education Section ===== */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--primary);
+      }
+
+      .timeline-item {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+        position: relative;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2rem;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--primary);
+        border: 3px solid var(--dark-light);
+      }
+
+      .timeline-item h3 {
+        font-size: 1.65rem;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+
+      .date {
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        font-size: 1.15rem;
+      }
+
+      .timeline-item p {
+        color: var(--text-light);
+        font-size: 1.3rem;
+        line-height: 1.8;
+      }
+
+      /* ===== Skills Section ===== */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .skill {
+        background: var(--primary-light);
+        color: var(--primary);
+        padding: 0.85rem 1.65rem;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .skill:hover {
+        transform: translateY(-3px);
+        background: rgba(14, 165, 233, 0.3);
+      }
+
+      /* ===== Experience Section ===== */
+      .volunteer-list {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .volunteer-item {
+        position: relative;
+        padding-left: 2rem;
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        background: rgba(14, 165, 233, 0.05);
+        border: 1px solid rgba(14, 165, 233, 0.1);
+        transition: var(--transition);
+      }
+
+      .volunteer-item:hover {
+        transform: translateY(-5px);
+        background: rgba(14, 165, 233, 0.1);
+        box-shadow: 0 10px 20px rgba(14, 165, 233, 0.1);
+      }
+
+      .volunteer-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 1.5rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .volunteer-item h4 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+
+      /* ===== Awards Section ===== */
+      .awards-list {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .award-item {
+        position: relative;
+        padding-left: 2rem;
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        background: rgba(14, 165, 233, 0.05);
+        border: 1px solid rgba(14, 165, 233, 0.1);
+        transition: var(--transition);
+      }
+
+      .award-item:hover {
+        transform: translateY(-5px);
+        background: rgba(14, 165, 233, 0.1);
+        box-shadow: 0 10px 20px rgba(14, 165, 233, 0.1);
+      }
+
+      .award-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 1.5rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      /* ===== Contact Section ===== */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .contact-card {
+        background: rgba(14, 165, 233, 0.05);
+        border: 1px solid rgba(14, 165, 233, 0.1);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(14, 165, 233, 0.1);
+        background: rgba(14, 165, 233, 0.1);
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        font-size: 1.4rem;
+      }
+
+      .contact-card h3 {
+        margin-bottom: 0.5rem;
+        color: var(--text);
+        font-size: 1.4rem;
+      }
+
+      .contact-card p {
+        color: var(--text-light);
+        font-size: 1.3rem;
+      }
+
+      /* ===== Footer ===== */
+      .footer {
+        text-align: center;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-top: 2rem;
+      }
+
+      .footer p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+      }
+
+      /* ===== Mobile Responsive Styles ===== */
+      @media (max-width: 992px) {
+        .resume-buttons {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --section-padding: 4rem 0;
+          --card-padding: 1.75rem;
+        }
+
+        .container {
+          padding: 0 1.5rem;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: var(--dark);
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem;
+          gap: 1.5rem;
+          clip-path: circle(0px at 90% -10%);
+          transition: clip-path 0.5s ease-in-out;
+          pointer-events: none;
+          box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          overflow-y: auto;
+          list-style: none;
+        }
+
+        .nav-links.active {
+          clip-path: circle(1000px at 90% -10%);
+          pointer-events: all;
+        }
+
+        .nav-links a {
+          font-size: 1.4rem;
+          padding: 0.75rem 1.5rem;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero-text h1 {
+          font-size: 2.6rem;
+        }
+
+        .hero-text h2 {
+          font-size: 1.55rem;
+        }
+
+        .profile-pic {
+          width: 180px;
+          height: 180px;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .mobile-resume-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+          width: 100%;
+        }
+
+        body {
+          font-size: 1.1rem;
+        }
+
+        .hero-text p {
+          font-size: 1.25rem;
+        }
+
+        .about-content p {
+          font-size: 1.2rem;
+        }
+
+        .timeline-item h3 {
+          font-size: 1.55rem;
+        }
+
+        .timeline-item p {
+          font-size: 1.2rem;
+        }
+
+        .skill {
+          font-size: 1.05rem;
+        }
+
+        .contact-card p {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-resume-buttons {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="bg-circuit"></div>
+
+    <!-- ===== Navigation Bar ===== -->
+    <nav class="navbar">
+      <a href="#home" class="navbar-brand">
+        <img
+          src="425ecb26-d740-439c-a687-972c17cffb09.jpeg"
+          alt="Dewaka Poudel"
+          class="profile-img"
+          loading="lazy"
+        />
+        <h1>Dewaka Poudel</h1>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <!-- Mobile Resume Buttons -->
+        <div class="mobile-resume-buttons">
+          <a
+            href="CV Poudel_Dewaka (1).pdf"
+            class="btn btn-primary"
+            download
+            aria-label="Download Dewaka Poudel's CV"
+          >
+            <i class="fas fa-download"></i> Download CV
+          </a>
+          <a
+            href="CV Poudel_Dewaka (1).pdf"
+            class="btn btn-outline"
+            target="_blank"
+            aria-label="View Dewaka Poudel's CV"
+          >
+            <i class="fas fa-eye"></i> View CV
+          </a>
+        </div>
+      </ul>
+
+      <!-- Desktop Resume Buttons -->
+      <div class="resume-buttons">
+        <a
+          href="CV Poudel_Dewaka (1).pdf"
+          class="btn btn-primary"
+          download
+          aria-label="Download Dewaka Poudel's CV"
+        >
+          <i class="fas fa-download"></i> Download CV
+        </a>
+        <a
+          href="CV Poudel_Dewaka (1).pdf"
+          class="btn btn-outline"
+          target="_blank"
+          aria-label="View Dewaka Poudel's CV"
+        >
+          <i class="fas fa-eye"></i> View CV
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-label="Toggle navigation menu"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+      <!-- Home Section -->
+      <section id="home" class="section">
+        <div class="container">
+          <div class="hero-content">
+            <img
+              src="bf66df26-cac2-4dc5-94b0-e9988c98e976.jpeg"
+              alt="Dewaka Poudel"
+              class="profile-pic"
+              loading="lazy"
+            />
+            <div class="hero-text">
+              <h1>Dewaka Poudel</h1>
+              <h2>Biotechnology Graduate | Research Associate</h2>
+              <p>
+                Biotechnology graduate with experience as a Research Associate
+                and Volunteer at Genebank. Skilled in Molecular Biology,
+                Microbiology, and Plant Tissue Culture. Strong in research,
+                teamwork, and technical skills. Currently planning to pursue a
+                master's degree to deepen knowledge and contribute to
+                cutting-edge scientific advancements.
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://linkedin.com/in/dewpdl"
+                  target="_blank"
+                  class="social-item"
+                  aria-label="Visit Dewaka Poudel's LinkedIn profile"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://www.facebook.com/anita.poudel.1675"
+                  target="_blank"
+                  class="social-item"
+                  aria-label="Visit Dewaka Poudel's Facebook profile"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                  <span>Facebook</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/dewakapdl/"
+                  target="_blank"
+                  class="social-item"
+                  aria-label="Visit Dewaka Poudel's Instagram profile"
+                >
+                  <i class="fab fa-instagram"></i>
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href="https://github.com/dewakapoudel"
+                  target="_blank"
+                  class="social-item"
+                  aria-label="Visit Dewaka Poudel's GitHub profile"
+                >
+                  <i class="fab fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="mailto:dewakapoudel642@gmail.com"
+                  class="social-item"
+                  aria-label="Email Dewaka Poudel"
+                >
+                  <i class="fas fa-envelope"></i>
+                  <span>Email</span>
+                </a>
+                <a
+                  href="tel:+9779843803715"
+                  class="social-item"
+                  aria-label="Call Dewaka Poudel"
+                >
+                  <i class="fas fa-phone"></i>
+                  <span>Call</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="card">
+            <div class="about-content">
+              <p>
+                I am a biotechnology graduate with hands-on experience in
+                research and laboratory techniques. My academic background and
+                professional experiences have equipped me with strong skills in
+                molecular biology, microbiology, and plant tissue culture. I am
+                passionate about scientific research and its potential to solve
+                real-world problems.
+              </p>
+
+              <p>
+                Currently, I'm working as a Research Associate at Agri-Direct
+                Global Pvt. Ltd., where I specialize in phytochemical and
+                essential oil extraction from agricultural spices. I'm also
+                involved in processing Shilajit, a natural organic mineral
+                compound, and conducting research on honey extraction and food
+                drying methods.
+              </p>
+
+              <p>
+                My goal is to pursue a master's degree to further deepen my
+                knowledge in biotechnology and contribute to cutting-edge
+                scientific advancements in the field.
+              </p>
+
+              <h3 class="text-primary">Languages</h3>
+              <div class="skills-container">
+                <span class="skill">Nepali (Native)</span>
+                <span class="skill">English (Fluent)</span>
+                <span class="skill">Hindi (Proficient)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="section">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="card">
+            <div class="timeline">
+              <div class="timeline-item">
+                <h3>Bachelor of Technology in Biotechnology</h3>
+                <span class="date">2018 - 2022</span>
+                <p class="text-light">
+                  Purbanchal University | Himalayan Whitehouse International
+                  College
+                </p>
+                <ul
+                  style="
+                    list-style-type: disc;
+                    padding-left: 1.5rem;
+                    margin-top: 0.5rem;
+                  "
+                >
+                  <li>
+                    <strong>Thesis:</strong> "Enhancing growth of maize seedling
+                    and plant through integration of phosphate solubilizing
+                    bacteria, rock phosphate, and vermicompost"
+                  </li>
+                  <li>
+                    <strong>Relevant Modules:</strong> Microbiology, Molecular
+                    Biology, Immunology, Immunotechnology, Cell and tissue
+                    culture, Biochemistry, Chemical engineering, Genetic
+                    Engineering, Bioinformatics, Cancer Biology
+                  </li>
+                </ul>
+              </div>
+              <div class="timeline-item">
+                <h3>Higher Secondary Level Education</h3>
+                <span class="date">2016 - 2018</span>
+                <p class="text-light">Nobel Academy Secondary School</p>
+                <p>Major (Physics, Chemistry, Biology), Minor (Mathematics)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <div class="card">
+            <h3 class="text-primary" style="margin-bottom: 1.5rem">
+              Laboratory & Technical Skills
+            </h3>
+            <div class="skills-container">
+              <span class="skill">Polymerase Chain Reaction (PCR)</span>
+              <span class="skill">DNA Extraction</span>
+              <span class="skill">Tissue Culture Techniques</span>
+              <span class="skill">Gel Electrophoresis</span>
+              <span class="skill">ELISA</span>
+              <span class="skill">Microbiological Analysis</span>
+              <span class="skill">Phytochemical Extraction</span>
+              <span class="skill">Essential Oil Extraction</span>
+              <span class="skill">Food Sample Analysis</span>
+              <span class="skill">Quality Control Tests</span>
+            </div>
+
+            <h3
+              class="text-primary"
+              style="margin-top: 2rem; margin-bottom: 1.5rem"
+            >
+              Soft Skills
+            </h3>
+            <div class="skills-container">
+              <span class="skill">Research & Analysis</span>
+              <span class="skill">Teamwork</span>
+              <span class="skill">Problem Solving</span>
+              <span class="skill">Attention to Detail</span>
+              <span class="skill">Communication</span>
+              <span class="skill">Adaptability</span>
+              <span class="skill">Leadership</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+          <div class="card">
+            <div class="timeline">
+              <div class="timeline-item">
+                <h3>Research Associate</h3>
+                <span class="date">January 2024 - Present</span>
+                <p class="text-light">Agri-Direct Global Pvt. Ltd.</p>
+                <ul
+                  style="
+                    list-style-type: disc;
+                    padding-left: 1.5rem;
+                    margin-top: 0.5rem;
+                  "
+                >
+                  <li>
+                    Spearheaded research initiatives specializing in
+                    phytochemical and essential oil extraction from agricultural
+                    spices
+                  </li>
+                  <li>
+                    Led investigations into the processing of Shilajit, a
+                    natural organic mineral compound rich in over 40 minerals
+                    and fulvic acid, sourced from Himalayan and other
+                    mountainous regions
+                  </li>
+                  <li>
+                    Executed advanced techniques in honey extraction, focusing
+                    on seasonal variations
+                  </li>
+                  <li>
+                    Conducted experimental studies on the optimal drying methods
+                    for various food and herbal items
+                  </li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <h3>Volunteer Research Assistant</h3>
+                <span class="date">June 2024 - Present</span>
+                <p class="text-light">
+                  National Agriculture Genetic Resources Centre (Genebank)
+                </p>
+                <ul
+                  style="
+                    list-style-type: disc;
+                    padding-left: 1.5rem;
+                    margin-top: 0.5rem;
+                  "
+                >
+                  <li>
+                    Assisted in research on plant tissue culture for the
+                    propagation and conservation of endangered species
+                  </li>
+                  <li>
+                    Performed sterile techniques, monitored plant growth, and
+                    maintained culture conditions in the lab
+                  </li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <h3>Intern</h3>
+                <span class="date">January - February 2024</span>
+                <p class="text-light">
+                  National Food Research Centre, Nepal Agricultural Research
+                  Council (NARC)
+                </p>
+                <ul
+                  style="
+                    list-style-type: disc;
+                    padding-left: 1.5rem;
+                    margin-top: 0.5rem;
+                  "
+                >
+                  <li>
+                    Gained experience in food sample analysis and phytochemical
+                    extraction
+                  </li>
+                  <li>
+                    Showcased leadership, teamwork, and dedication, recognized
+                    for motivation and initiative
+                  </li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <h3>Quality Control and Production Unit Intern</h3>
+                <span class="date">December 2023</span>
+                <p class="text-light">Dairy Development Cooperation (DDC)</p>
+                <ul
+                  style="
+                    list-style-type: disc;
+                    padding-left: 1.5rem;
+                    margin-top: 0.5rem;
+                  "
+                >
+                  <li>
+                    Microbiological analysis: Performed Total Plate count (TCP)
+                    and Coliform test to access microbial quality
+                  </li>
+                  <li>
+                    Chemical tests: Conducted fat tests, acidity tests,
+                    Solid-Not-Fat (SNF) tests, adulteration checks,
+                    Clot-On-Boiling (COB) tests, CLR (Corrected Lactometer
+                    Reading) tests, and moisture tests
+                  </li>
+                  <li>
+                    Quality Management: Implemented and monitored cleaning and
+                    sanitation and milk processing operations
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards Section -->
+      <section id="awards" class="section">
+        <div class="container">
+          <h2 class="section-title">Awards & Achievements</h2>
+          <div class="card">
+            <ul class="awards-list">
+              <li class="award-item">
+                <h4>
+                  Finalist at NICHOD - Worldwide Competition on Three Minute
+                  Research Presentations in Nepal
+                </h4>
+                <span class="date">September 2023</span>
+                <p class="text-light">Issued by NaYAN, PURC, and GPAST</p>
+              </li>
+              <li class="award-item">
+                <h4>
+                  Certificate of Appreciation for exemplary service as Secretary
+                  at BSN Student Unit
+                </h4>
+                <span class="date">October 2022</span>
+                <p class="text-light">
+                  Issued by the Biotechnology Society of Nepal
+                </p>
+              </li>
+              <li class="award-item">
+                <h4>
+                  Certificate of Achievement as Runner-up in the Bio-model
+                  Competition
+                </h4>
+                <span class="date">September 2022</span>
+                <p class="text-light">Issued by Kathmandu University</p>
+              </li>
+              <li class="award-item">
+                <h4>
+                  Certificate of Appreciation for securing First Position in the
+                  Quiz Competition at Biotech Meet 2019
+                </h4>
+                <span class="date">September 2019</span>
+                <p class="text-light">
+                  Issued by Kathmandu University, Dhulikhel
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="card">
+            <div class="contact-grid">
+              <div class="contact-card" onclick="sendEmail()">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p>dewakapoudel642@gmail.com</p>
+                <p
+                  class="text-light"
+                  style="margin-top: 0.5rem; font-size: 1rem"
+                >
+                  Click to send me a message
+                </p>
+              </div>
+              <div class="contact-card" onclick="makePhoneCall()">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <h3>Phone</h3>
+                <p>+977-9843803715</p>
+                <p
+                  class="text-light"
+                  style="margin-top: 0.5rem; font-size: 1rem"
+                >
+                  Available Mon-Fri, 9AM-5PM
+                </p>
+              </div>
+              <div class="contact-card" onclick="openMap()">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Location</h3>
+                <p>Chandragiri 6, Kathmandu</p>
+                <p
+                  class="text-light"
+                  style="margin-top: 0.5rem; font-size: 1rem"
+                >
+                  Nepal
+                </p>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form class="contact-form" style="margin-top: 3rem">
+              <h3
+                class="text-primary"
+                style="margin-bottom: 1.5rem; text-align: center"
+              >
+                Send Me a Message
+              </h3>
+              <div style="display: grid; gap: 1.5rem">
+                <div
+                  style="
+                    display: grid;
+                    gap: 1rem;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                  "
+                >
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    name="name"
+                    required
+                    style="
+                      padding: 0.75rem;
+                      border-radius: var(--border-radius);
+                      background: var(--dark);
+                      border: 1px solid rgba(255, 255, 255, 0.1);
+                      color: var(--text);
+                      font-size: 1.2rem;
+                    "
+                  />
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    name="email"
+                    required
+                    style="
+                      padding: 0.75rem;
+                      border-radius: var(--border-radius);
+                      background: var(--dark);
+                      border: 1px solid rgba(255, 255, 255, 0.1);
+                      color: var(--text);
+                      font-size: 1.2rem;
+                    "
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  name="subject"
+                  required
+                  style="
+                    padding: 0.75rem;
+                    border-radius: var(--border-radius);
+                    background: var(--dark);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    color: var(--text);
+                    font-size: 1.2rem;
+                  "
+                />
+                <textarea
+                  placeholder="Your Message"
+                  name="message"
+                  rows="5"
+                  required
+                  style="
+                    padding: 0.75rem;
+                    border-radius: var(--border-radius);
+                    background: var(--dark);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    color: var(--text);
+                    font-size: 1.2rem;
+                  "
+                ></textarea>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="justify-content: center"
+                  aria-label="Send message"
+                >
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+      <div class="container">
+        <p>© <span id="year"></span> Dewaka Poudel. All rights reserved.</p>
+        <div
+          class="social-links"
+          style="justify-content: center; margin-top: 1rem"
+        >
+          <a
+            href="https://www.linkedin.com/in/dewpdl/"
+            target="_blank"
+            class="social-item"
+            style="background: transparent; padding: 0.5rem"
+            aria-label="Visit Dewaka Poudel's LinkedIn profile"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/anita.poudel.1675"
+            target="_blank"
+            class="social-item"
+            style="background: transparent; padding: 0.5rem"
+            aria-label="Visit Dewaka Poudel's Facebook profile"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/dewakapdl/"
+            target="_blank"
+            class="social-item"
+            style="background: transparent; padding: 0.5rem"
+            aria-label="Visit Dewaka Poudel's Instagram profile"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/dewakapoudel"
+            target="_blank"
+            class="social-item"
+            style="background: transparent; padding: 0.5rem"
+            aria-label="Visit Dewaka Poudel's GitHub profile"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="mailto:dewakapoudel642@gmail.com"
+            class="social-item"
+            style="background: transparent; padding: 0.5rem"
+            aria-label="Email Dewaka Poudel"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="tel:+9779843803715"
+            class="social-item"
+            style="background: transparent; padding: 0.5rem"
+            aria-label="Call Dewaka Poudel"
+          >
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        mobileMenuBtn.innerHTML = navLinks.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+        // Keyboard navigation support
+        link.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            navLinks.classList.remove("active");
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Highlight active section in navigation
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll(".nav-links a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (pageYOffset >= sectionTop - 150) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href") === `#${current}`) {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Contact functions
+      function sendEmail() {
+        window.location.href = "mailto:dewakapoudel642@gmail.com";
+      }
+
+      function makePhoneCall() {
+        window.location.href = "tel:+9779843803715";
+      }
+
+      function openMap() {
+        window.open(
+          "https://maps.google.com?q=Chandragiri+6,Kathmandu,Nepal",
+          "_blank"
+        );
+      }
+
+      // Form submission with validation
+      const contactForm = document.querySelector(".contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = this.querySelector('input[name="name"]').value;
+          const email = this.querySelector('input[name="email"]').value;
+          const subject = this.querySelector('input[name="subject"]').value;
+          const message = this.querySelector('textarea[name="message"]').value;
+
+          if (!name || !email || !subject || !message) {
+            alert("Please fill out all fields.");
+            return;
+          }
+
+          // Placeholder for form submission (replace with actual backend integration)
+          alert("Thank you for your message! I will get back to you soon.");
+          this.reset();
+        });
+      }
+
+      // Initialize with active home section
+      document.addEventListener("DOMContentLoaded", () => {
+        navItems[0].classList.add("active");
+      });
+    </script>
+  </body>
+</html>
